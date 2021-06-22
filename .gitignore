@@ -1,2 +1,5 @@
+
+### Useless system macOS files
+.DS_Store
 ### VisualStudioCode ###
 .vscode/*
