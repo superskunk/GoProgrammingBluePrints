@@ -41,7 +41,7 @@ func main() {
 	r := newRoom()
 	r.tracer = getTracer(*tracing)
 	chatTemplate := &templateHandler{filename: "chat.html"}
-	http.Handle("/", chatTemplate)
+	http.Handle("/", MustAuth(chatTemplate))
 	http.Handle("/room", r)
 	go r.run()
 	// Start the web server
