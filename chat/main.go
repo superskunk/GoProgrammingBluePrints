@@ -40,8 +40,8 @@ func main() {
 	flag.Parse()
 	r := newRoom()
 	r.tracer = getTracer(*tracing)
-	chatTemplate := &templateHandler{filename: "chat.html"}
-	http.Handle("/", MustAuth(chatTemplate))
+	http.Handle("/", MustAuth(&templateHandler{filename: "chat.html"}))
+	http.Handle("/login", &templateHandler{filename: "login.html"})
 	http.Handle("/room", r)
 	go r.run()
 	// Start the web server
